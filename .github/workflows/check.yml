@@ -1,0 +1,17 @@
+name: Check for required files
+
+on:
+  push:
+    branches: [ '!master' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check Screenshot
+        id: check_1_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "screenshot-exercises.png"
